@@ -1,5 +1,14 @@
-/ffmpeg-render-server
-    /server.js
-    /package.json
-    /README.md
-    /render.yaml   (Render Deploy Button के लिए)
+services:
+  - type: web
+    name: ffmpeg-render-server
+    runtime: node
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: SUPABASE_BUCKET
+        sync: false
